@@ -9,7 +9,7 @@ class BaseAction:
         return hash(self.name)
 
     def __eq__(self, other):
-        if self.__class__ == other.__class__:
+        return self.__class__ == other.__class__
             return True
 
 
