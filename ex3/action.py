@@ -6,7 +6,7 @@ class BaseAction:
         return self.name
 
     def __hash__(self):
-        return hash(repr(self))
+        return hash(self.name)
 
     def __eq__(self, other):
         if self.__class__ == other.__class__:
