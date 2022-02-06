@@ -1,4 +1,5 @@
 from ex2 import fetcher
+import time
 
 CALL_COUNT = 10
 
@@ -11,17 +12,19 @@ def benchmark(num):
     :return: функцию обёртку
     """
     def decorator(func):
-        import time
         def wrapper(*args, **kwargs):
             fetch_timetable = []
+            fetch_avg_time = 0
             for i in range(num):
                 start_time = time.time()
                 func(*args, **kwargs)
                 end_time = time.time()
-                fetch_timetable.append(end_time - start_time)
+                fetch_duration = end_time - start_time
+                fetch_avg_time += fetch_duration
+                fetch_timetable.append(fetch_duration)
             for i in range(len(fetch_timetable)):
                 print("Fetch #{}, {:.3} seconds".format(i+1, fetch_timetable[i]))
-            print("Average fetch time: {:.3} seconds".format(sum(fetch_timetable)/len(fetch_timetable)))
+            print("Average fetch time: {:.3} seconds".format(fetch_avg_time))
         return wrapper
     return decorator
 

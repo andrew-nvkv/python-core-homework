@@ -10,7 +10,6 @@ class BaseAction:
 
     def __eq__(self, other):
         return self.__class__ == other.__class__
-            return True
 
 
 class NothingAction(BaseAction):

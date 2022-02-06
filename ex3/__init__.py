@@ -1,5 +1,4 @@
-from ex3.available_actions import NOTHING_ACTION, ROCK_ACTION, PAPER_ACTION, SCISSORS_ACTION
-from ex3.player import Player
+from ex3.available_actions import NOTHING_ACTION
 
 
 def determine_winner(player1, player2):
